@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp">
+
+        <ImageView
+            android:id="@+id/imageDetailMovie"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:adjustViewBounds="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/itapiimage" />
+
+        <TextView
+            android:id="@+id/movieTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="It"
+            android:textAppearance="@android:style/TextAppearance.Material.Display1"
+            app:layout_constraintStart_toEndOf="@+id/imageDetailMovie"
+            app:layout_constraintTop_toTopOf="@+id/imageDetailMovie" />
+
+        <CheckBox
+            android:id="@+id/addToFavorite"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="66dp"
+            android:button="@drawable/checkbox_selector"
+            app:layout_constraintStart_toStartOf="@+id/releaseDateText"
+            app:layout_constraintTop_toBottomOf="@+id/releaseDateText" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageDetailMovie"
+            app:layout_constraintTop_toBottomOf="@+id/movieTitle"
+            app:srcCompat="@color/divider" />
+
+        <TextView
+            android:id="@+id/voteAverageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Vote  average:"
+            android:textAppearance="@android:style/TextAppearance.Material.Title"
+            app:layout_constraintStart_toStartOf="@+id/imageView5"
+            app:layout_constraintTop_toTopOf="@+id/imageView5" />
+
+        <RatingBar
+            android:id="@+id/voteAverageMovie"
+            style="@android:style/Widget.Holo.Light.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/voteAverageText"
+            app:layout_constraintStart_toEndOf="@+id/voteAverageText"
+            app:layout_constraintTop_toTopOf="@+id/voteAverageText"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/releaseDateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Release date:"
+            android:textAppearance="@android:style/TextAppearance.Material.Title"
+            app:layout_constraintStart_toStartOf="@+id/voteAverageText"
+            app:layout_constraintTop_toBottomOf="@+id/voteAverageText" />
+
+        <TextView
+            android:id="@+id/releaseDateMovie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12-26-2017"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            app:layout_constraintBottom_toBottomOf="@+id/releaseDateText"
+            app:layout_constraintStart_toStartOf="@+id/voteAverageMovie"
+            app:layout_constraintTop_toTopOf="@+id/releaseDateText"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/sipnosisText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Synopsis"
+            android:textAppearance="@android:style/TextAppearance.Material.Title"
+            app:layout_constraintStart_toStartOf="@+id/imageDetailMovie"
+            app:layout_constraintTop_toBottomOf="@+id/imageDetailMovie" />
+
+        <TextView
+            android:id="@+id/sipnosisMovie"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:text="In a small town in Maine, seven children known as The Losers Club come face to face with life problems, bullies and a monster that takes the shape of a clown called Pennywise."
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.562"
+            app:layout_constraintStart_toStartOf="@+id/sipnosisText"
+            app:layout_constraintTop_toBottomOf="@+id/sipnosisText" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Trailers"
+            android:textAppearance="@android:style/TextAppearance.Material.Title"
+            app:layout_constraintStart_toStartOf="@+id/sipnosisMovie"
+            app:layout_constraintTop_toBottomOf="@+id/sipnosisMovie" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerTrailers"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/reviewContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Reviews"
+            android:textAppearance="@android:style/TextAppearance.Material.Title"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/noTrailers" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerReviews"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="8dp"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/reviewContent"
+            app:layout_constraintTop_toBottomOf="@+id/reviewContent" />
+
+        <TextView
+            android:id="@+id/noTrailers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="No trailers available"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            app:layout_constraintStart_toStartOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerTrailers" />
+
+        <TextView
+            android:id="@+id/noReviews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="No reviews available"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            app:layout_constraintStart_toStartOf="@+id/reviewContent"
+            app:layout_constraintTop_toBottomOf="@+id/recyclerReviews" />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

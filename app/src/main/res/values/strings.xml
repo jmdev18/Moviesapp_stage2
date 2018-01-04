@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Movies app</string>
+    <string name="calification">Calification : </string>
+    <string name="content_description_imageDetail">Image from movie</string>
+    <string name="content_description_listItem">each image is here</string>
+    <string name="error_message">Error with loading content</string>
+    <string name="menu_refresh">Refresh</string>
+    <string name="menu_popular">Popular</string>
+    <string name="menu_top_rated">Top rated</string>
+    <string name="favorites_menu">Favorites</string>
+</resources>

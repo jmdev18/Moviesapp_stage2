@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/refresh"
+        android:title="@string/menu_refresh"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/popular"
+        android:title="@string/menu_popular"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/top_rated"
+        android:title="@string/menu_top_rated"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/favorites"
+        android:title="@string/favorites_menu"
+        app:showAsAction="never" />
+    <item android:id="@+id/reset"
+        android:title="reset"
+        app:showAsAction="never"/>
+</menu>
