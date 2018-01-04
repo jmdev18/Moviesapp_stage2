@@ -136,6 +136,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.L
         } else {
             loaderManager.restartLoader(LOADER_ID, queryBundle, this);
         }
+        swipeRefreshLayout.setRefreshing(true);
     }
 
     @Override
@@ -157,7 +158,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.L
 
             @Override
             protected void onStartLoading() {
-                swipeRefreshLayout.setRefreshing(true);
                 if (args == null) {
                     return;
                 }
@@ -247,11 +247,15 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.L
 
                 @Override
                 public void onLoadFinished(Loader<List<Movie>> loader, List<Movie> data) {
-                    if (data != null) {
-                        showData();
-                        mRecyclerApdater.setData(data);
-                    } else {
-                        showError();
+                    if (orderBy.equals("favorites")) {
+                        if (data != null) {
+                            showData();
+
+                            mRecyclerApdater.setData(data);
+
+                        } else {
+                            showError();
+                        }
                     }
                 }
 
