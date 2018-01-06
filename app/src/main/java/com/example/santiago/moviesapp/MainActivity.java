@@ -41,14 +41,17 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.L
     //Reccycler
     private TextView error;
     private String orderBy;
+
     private SwipeRefreshLayout swipeRefreshLayout;
+
     private static final int LOADER_ID = 1;
 
     final String ORDER_BY_KEY = "order_by";
-    final String SCROLL_RESTORE_KEY = "scroll_restore";
 
     private static final int LOADER_FAVORITES = 2;
-    Parcelable listState;
+
+    private Parcelable scrollListState;
+    private static final String SCROLL_PARCELABLE_KEY = "parcelable_scroll_position";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,7 +104,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.L
             loadData(orderBy);
         }
         loadData(orderBy);
-        mRecyclerView.getLayoutManager().onRestoreInstanceState(listState);
     }
 
     private void showError() {
@@ -122,13 +124,20 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.L
         //here we call the showdata method for make visibles the movies
         //then we set the data of the movies to null
         //and finally we sync and
-        if (orderBy.equals("favorites")) {
-            getSupportLoaderManager().initLoader(LOADER_FAVORITES, null, loaderFavorites);
-            return;
-        }
         showData();
         mRecyclerApdater.setData(null);
+        scrollListState = null;
+        if (orderBy.equals("favorites")) {
+            LoaderManager loaderManager = getSupportLoaderManager();
+            Loader<List<Movie>> favoritesLoader = loaderManager.getLoader(LOADER_ID);
 
+            if (favoritesLoader == null) {
+                loaderManager.initLoader(LOADER_FAVORITES, null, loaderFavorites);
+            } else {
+                loaderManager.restartLoader(LOADER_FAVORITES, null, loaderFavorites);
+            }
+            return;
+        }
         Bundle queryBundle = new Bundle();
         queryBundle.putString(ORDER_BY_KEY, orderBy);
         LoaderManager loaderManager = getSupportLoaderManager();
@@ -205,6 +214,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.L
         if (data != null) {
             showData();
             mRecyclerApdater.setData(data);
+            mRecyclerView.getLayoutManager().onRestoreInstanceState(scrollListState);
         } else {
             showError();
         }
@@ -253,9 +263,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.L
                     if (orderBy.equals("favorites")) {
                         if (data != null) {
                             showData();
-
                             mRecyclerApdater.setData(data);
-
+                            mRecyclerView.getLayoutManager().onRestoreInstanceState(scrollListState);
                         } else {
                             showError();
                         }
@@ -305,15 +314,13 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.L
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putString(ORDER_BY_KEY, orderBy);
-        Parcelable par =mRecyclerView.getLayoutManager().onSaveInstanceState();
-        outState.putParcelable("par",par);
+        Parcelable scrollParcelable =mRecyclerView.getLayoutManager().onSaveInstanceState();
+        outState.putParcelable(SCROLL_PARCELABLE_KEY,scrollParcelable);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        listState = savedInstanceState.getParcelable("par");
+        scrollListState = savedInstanceState.getParcelable(SCROLL_PARCELABLE_KEY);
     }
-
-
 }
