@@ -4,6 +4,8 @@ import android.content.CursorLoader;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Parcelable;
+import android.os.PersistableBundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.AsyncTaskLoader;
 import android.support.v4.content.Loader;
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.L
     final String SCROLL_RESTORE_KEY = "scroll_restore";
 
     private static final int LOADER_FAVORITES = 2;
+    Parcelable listState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,12 +96,13 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.L
         //initialize the loader
         //recycler config
         orderBy = "popular";
-        if (savedInstanceState != null) {
+        /*if (savedInstanceState != null) {
             orderBy = savedInstanceState.getString(ORDER_BY_KEY);
             gridLayoutManager.scrollToPosition(savedInstanceState.getInt(SCROLL_RESTORE_KEY));
             loadData(orderBy);
-        }
+        }*/
         loadData(orderBy);
+        mRecyclerView.getLayoutManager().onRestoreInstanceState(listState);
     }
 
     private void showError() {
@@ -300,9 +304,17 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.L
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        outState.putString(ORDER_BY_KEY, orderBy);
-        outState.putInt(SCROLL_RESTORE_KEY, gridLayoutManager.findFirstVisibleItemPosition());
         super.onSaveInstanceState(outState);
+        outState.putString(ORDER_BY_KEY, orderBy);
+        Parcelable par =mRecyclerView.getLayoutManager().onSaveInstanceState();
+        outState.putParcelable("par",par);
     }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        listState = savedInstanceState.getParcelable("par");
+    }
+
 
 }

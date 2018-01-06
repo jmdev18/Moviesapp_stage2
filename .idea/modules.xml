@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://C:\Users\Santiago\Downloads\Udacity\AND udacity\AND projects\stage2\Moviesapp.iml" filepath="C:\Users\Santiago\Downloads\Udacity\AND udacity\AND projects\stage2\Moviesapp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://C:\Users\Santiago\Downloads\Udacity\AND udacity\AND projects\stage2\app\app.iml" filepath="C:\Users\Santiago\Downloads\Udacity\AND udacity\AND projects\stage2\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/stage2.iml" filepath="$PROJECT_DIR$/stage2.iml" />
     </modules>
   </component>
