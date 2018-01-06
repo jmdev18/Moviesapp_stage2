@@ -100,11 +100,8 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.L
         //initialize the loader
         //recycler config
         orderBy = "popular";
-        if (savedInstanceState != null) {
-            orderBy = savedInstanceState.getString(ORDER_BY_KEY);
-            loadData(orderBy);
-        }
         loadData(orderBy);
+        //getSupportActionBar().setTitle(orderBy.toUpperCase());
     }
 
     private void showError() {
@@ -314,7 +311,6 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.L
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString(ORDER_BY_KEY, orderBy);
         Parcelable scrollParcelable =mRecyclerView.getLayoutManager().onSaveInstanceState();
         outState.putParcelable(SCROLL_PARCELABLE_KEY,scrollParcelable);
     }

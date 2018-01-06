@@ -22,6 +22,7 @@
         </activity>
         <activity
             android:name=".DetailActivity"
+            android:label="Movie Details"
             android:parentActivityName=".MainActivity"
             tools:targetApi="jelly_bean">
             <!-- Parent activity meta-data to support 4.0 and lower -->

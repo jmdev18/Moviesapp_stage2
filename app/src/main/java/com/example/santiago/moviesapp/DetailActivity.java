@@ -127,8 +127,8 @@ public class DetailActivity extends AppCompatActivity implements
                         Toast.makeText(getApplicationContext(), "Added to favorites", Toast.LENGTH_SHORT).show();
                     } else {
                         Uri uri = CONTENT_URI.buildUpon().appendPath(intent.getStringExtra("movieId")).build();
-                        int rowsDeleted = getContentResolver().delete(uri, null, null);
-                        Toast.makeText(getApplicationContext(), "Deleted from favorites " + rowsDeleted, Toast.LENGTH_SHORT).show();
+                        //int rowsDeleted = getContentResolver().delete(uri, null, null);
+                        Toast.makeText(getApplicationContext(), "Deleted from favorites ", Toast.LENGTH_SHORT).show();
                     }
 
                 }
