@@ -34,14 +34,15 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements RecyclerAdapter.ListItemClickListener,
         LoaderManager.LoaderCallbacks<List<Movie>> {
     private static final String TAG = "MainActivity";
-    private GridLayoutManager gridLayoutManager;
+
     //Reccycler
+    private GridLayoutManager gridLayoutManager;
     private RecyclerView mRecyclerView;
     private RecyclerAdapter mRecyclerApdater;
     //Reccycler
+
     private TextView error;
     private String orderBy;
-
     private SwipeRefreshLayout swipeRefreshLayout;
 
     private static final int LOADER_ID = 1;
