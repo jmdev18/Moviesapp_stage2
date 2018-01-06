@@ -96,11 +96,10 @@ public class MainActivity extends AppCompatActivity implements RecyclerAdapter.L
         //initialize the loader
         //recycler config
         orderBy = "popular";
-        /*if (savedInstanceState != null) {
+        if (savedInstanceState != null) {
             orderBy = savedInstanceState.getString(ORDER_BY_KEY);
-            gridLayoutManager.scrollToPosition(savedInstanceState.getInt(SCROLL_RESTORE_KEY));
             loadData(orderBy);
-        }*/
+        }
         loadData(orderBy);
         mRecyclerView.getLayoutManager().onRestoreInstanceState(listState);
     }
