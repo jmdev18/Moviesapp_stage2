@@ -29,8 +29,6 @@ You must provide your own API key in order to build the app. When you get it, ju
 
 ![screen](../master/images/phone_detail.png)
 
-![screen](../master/images/tablet_main.png)
-
 ![screen](../master/images/tablet_detail_port.png)
    
 ## Android Developer Nanodegree
