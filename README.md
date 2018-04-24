@@ -1,4 +1,6 @@
 # Moviesapp_stage2
+I made this app from scratch for Android Developer Nanodegree program.
+This app is the second stage for the first project *Popular Movies App* and was  highly evaluated by certified Udacity code reviewer.
 
 Is a simple movies app that communicates with the internet and provides a responsive user
 experience. In this project, I:
