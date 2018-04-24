@@ -1,11 +1,19 @@
 # Movies app Stage 2
 I made this app from scratch for Android Developer Nanodegree program, this app is the second stage for the first project *Popular Movies App* and was  highly evaluated by certified Udacity code reviewer.
 
-Is a simple movies app that communicates with the internet and provides a responsive user
-experience. In this project, I:
+Is a movies app that communicates with the internet and provides a responsive user
+experience, a fully featured application that looks and feels natural. In this project, I:
 * Fetched data from the Internet with the MovieDB API. 
 * Used adapters and custom list layouts to populate list views. 
 * Incorporated libraries to simplify the amount of code you need to write 
+* Allow users to read reviews of a selected movie.
+* Allow users to mark a movie as a favorite in the details view by tapping a button(star).
+* Create a database and content provider to store the names and IDs of the user's favorite movies
+(and optionally, the rest of the information needed to display their favorites collection while
+offline).
+* Modify the existing sorting criteria for the main view to include an additional pivot to show their
+favorites collection.
+
 
 ## Features
 
